@@ -1,4 +1,4 @@
-package Configuration;
+package Utilies;
 import java.util.Scanner;
 
 /**
@@ -49,5 +49,28 @@ public class Easymeth {
     public static String getString(String message) {
         System.out.println(message);
         return sc.nextLine().trim();
+    }
+    public static String getValidInput(String prompt) {
+        String input;
+        boolean isValid = false;
+
+        do {
+            System.out.print(prompt);
+            input = sc.nextLine();
+
+            // Regular expression:
+            // ^ -> Start of string
+            // [a-zA-Z0-9 ] -> Allows letters 'a' through 'z' (lowercase and uppercase),
+            // numbers 0 through 9, and spaces.
+            // + -> One or more of the allowed characters.
+            // $ -> End of string
+            if (input.matches("^[a-zA-Z ]+$")) {
+                isValid = true;
+            } else {
+                System.out.println("Entrada inválida. Por favor, use solo letras. Evite caracteres especiales.");
+            }
+        } while (!isValid);
+
+        return input;
     }
 }

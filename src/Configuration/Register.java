@@ -1,5 +1,9 @@
 package Configuration;
 
+import Utilies.Easymeth;
+import Utilies.Encrypt;
+import Utilies.VerifyInfo;
+
 import javax.crypto.SecretKey;
 import java.io.File;
 import java.util.ArrayList;
@@ -15,17 +19,17 @@ public class Register{
     /**
      * A static {@link List} to hold {@link User} objects, representing all registered users.
      */
-    public static List <User> users = new ArrayList<>();
+    private static List <User> users = new ArrayList<>();
     /**
      * A static {@link SecretKey} used for encrypting and decrypting user data.
      * The key is generated from the string "miclave123".
      */
-    public static SecretKey clave =Encrypt.generateKey("miclave123");
+    public final static SecretKey clave = Encrypt.generateKey("miclave123");
     /**
      * A static {@link File} object representing the file where encrypted user data is stored.
      * The file is named "users".
      */
-    public static File fileUsers = new File("users");
+    private final static File fileUsers = new File("users");
 
 
     /**
@@ -40,7 +44,7 @@ public class Register{
     public static void register() throws Exception {
         users = List.of(Encrypt.decryptUsersFromFile(fileUsers, clave));
 
-        User user = new User(VerifyInfo.verifyEmail(users),VerifyInfo.verifyPassword(), users.size());
+        User user = new User(VerifyInfo.verifyEmail(users),VerifyInfo.verifyPassword());
         Encrypt.addUserToEncryptedFile(user, fileUsers, clave);
         System.out.println("Usuario registrado con exito. ");
 

@@ -1,4 +1,5 @@
-package Configuration;
+package Utilies;
+import Configuration.User;
 import com.google.gson.Gson;
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;

@@ -1,4 +1,6 @@
-package Configuration;
+package Utilies;
+
+import Configuration.User;
 
 import java.util.List;
 import java.util.regex.Matcher;
