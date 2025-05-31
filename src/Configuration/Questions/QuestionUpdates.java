@@ -350,5 +350,51 @@ public class QuestionUpdates {
 
     }
 
+    public static List<QuestionReject> readRejectedQuestions(File file) {
+        List<QuestionReject> rechazadas = new ArrayList<>();
+        try {
+            if (!file.exists()) {
+                // Crear archivo si no existe
+                try (Writer writer = new FileWriter(file)) {
+                    writer.write("[]");
+                }
+            }
+
+            try (Reader reader = new FileReader(file)) {
+                Type type = new TypeToken<List<QuestionReject>>() {}.getType();
+                rechazadas = gson.fromJson(reader, type);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rechazadas;
+    }
+    public static void updateFileRejected(File file, List<QuestionReject> list) {
+        try (Writer writer = new FileWriter(file)) {
+            gson.toJson(list, writer);
+        } catch (IOException e) {
+            System.err.println("Error al actualizar archivo de rechazadas: " + e.getMessage());
+        }
+    }
+    public static void addRejectedQuestionToFile(File file, QuestionReject question) {
+        try {
+            List<QuestionReject> rechazadas = readRejectedQuestions(file);
+            rechazadas.add(question);
+            try (Writer writer = new FileWriter(file)) {
+                gson.toJson(rechazadas, writer);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void printRejectedQuestions(List<QuestionReject> list) {
+        int index = 1;
+        for (QuestionReject q : list) {
+            System.out.println(index + ". " + q.toString());
+            index++;
+        }
+    }
 
 }
+
+

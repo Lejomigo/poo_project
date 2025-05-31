@@ -11,11 +11,12 @@ import java.util.Map;
 import java.util.HashMap;
 
 import static Configuration.Questions.QuestionUpdates.*;
+import Configuration.Questions.QuestionReject;
 
 public class QuestionsHandler {
     public static final File fileQuestions = new File("preguntasJuegoTrivia.json");
     public static final File fileToApprove = new File("preguntasPorAprobar");
-;
+    public static final File fileRejected = new File("preguntasRechazadas.json");
 
 
     public static void createQuestion(User userAsk){
@@ -73,7 +74,47 @@ public class QuestionsHandler {
         }
 
     }
+    public static void rejectQuestion(User userReject) {
+        if (fileToApprove.length() == 0) {
+            System.out.println("El archivo de preguntas por aprobar está vacío.");
+            return;
+        }
+        List<QuestionApprove> listToApprove = readQuestionsToApprove(fileToApprove, userReject);
+        List<QuestionApprove> listAll = readQuestionsToApproveAll(fileToApprove);
+        if (listToApprove.isEmpty()) {
+            System.out.println("No hay preguntas por rechazar.");
+            return;
+        }
+        printQuestionsApprove(listToApprove);
+        System.out.println("");
+        int num = Easymeth.getInt("Índice (del 1 al " + listToApprove.size() + " ):");
+        while (num > listToApprove.size() || num < 1) {
+            num = Easymeth.getInt("Introduce un índice válido.");
+        }
+        QuestionApprove toReject = listToApprove.get(num - 1);
+        String motivo = Easymeth.getValidInput("¿Por qué estás rechazando esta pregunta?");
+        QuestionReject rejected = new QuestionReject(
+            toReject.getQuestion(),
+            toReject.getAnswer(),
+            toReject.getCategory(),
+            toReject.getUserAsk(),
+            userReject.getMail(),
+            motivo
+        );
 
+        List<QuestionReject> rechazadas = readRejectedQuestions(fileRejected);
+        rechazadas.add(rejected);
+        updateFileRejected(fileRejected, rechazadas);
+
+        listAll.removeIf(q -> q.getQuestion().equals(toReject.getQuestion()));
+        updateFileApprove(fileToApprove, listAll);
+
+        System.out.println("Pregunta rechazada y registrada.");
+        String option = Easymeth.getString("¿Quieres rechazar otra (s/n)? ");
+        if (option.equalsIgnoreCase("s")) {
+            rejectQuestion(userReject);
+        }
+    }
     public static void removeQuestion(){
         List<Question> questionList = readQuestions(fileQuestions);
         printQuestions(questionList);
@@ -124,7 +165,8 @@ public class QuestionsHandler {
             System.out.println("2. Eliminar Pregunta");
             System.out.println("3. Modificar Pregunta");
             System.out.println("4. Aprobar pregunta");
-            System.out.println("5. Volver");
+            System.out.println("5. Rechazar pregunta");
+            System.out.println("6. Volver");
             menuOption = Easymeth.getInt("Ingrese opción: ");
 
             switch (menuOption) {
@@ -141,6 +183,9 @@ public class QuestionsHandler {
                     approveQuestion(user);
                     break;
                 case 5:
+                    approveQuestion(user);
+                    break;
+                case 6:
                     System.out.println("Volviendo al menú anterior...");
                     break;
                 default:
