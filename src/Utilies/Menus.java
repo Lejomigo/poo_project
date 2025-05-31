@@ -3,8 +3,8 @@ package Utilies;
 import Configuration.Questions.QuestionsHandler;
 import Configuration.Register;
 import Configuration.User;
-
 import static Configuration.Questions.QuestionsHandler.menuQuestion;
+import static Game.Cronometro.configurarCronometro;
 
 public class Menus {
 
@@ -31,6 +31,7 @@ public class Menus {
 
             }
         }while (userIn !=null){
+
                 System.out.println("Bienvenido, esta usando: "+ userIn.getMail()+".");
                 System.out.println("1.Preguntas del juego.");
                 System.out.println("2.Configurar tiempo. ");
@@ -43,6 +44,7 @@ public class Menus {
                         menuQuestion(userIn);
                         break;
                     case 2:
+                        configurarCronometro();
                         break;
                     case 3:
                         break;

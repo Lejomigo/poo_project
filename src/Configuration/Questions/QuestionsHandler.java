@@ -183,11 +183,11 @@ public class QuestionsHandler {
                     approveQuestion(user);
                     break;
                 case 5:
-                    approveQuestion(user);
+                    rejectQuestion(user);
                     break;
                 case 6:
                     System.out.println("Volviendo al menú anterior...");
-                    break;
+                    return;
                 default:
                     System.out.println("Opción inválida. Intente nuevamente.");
                     break;

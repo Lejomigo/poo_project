@@ -1,5 +1,7 @@
 package Game;
 
+import java.util.Scanner;
+
 public class Cronometro {
 
     private long tiempoInicio;   // Timestamp cuando empieza
@@ -40,5 +42,36 @@ public class Cronometro {
 
     public boolean estaActivo() {
         return enCurso;
+    }
+    public static Cronometro configurarCronometro() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("¿Quieres activar el cronómetro?");
+        System.out.println("1. Sí");
+        System.out.println("2. No");
+        int opcion = scanner.nextInt();
+
+        Cronometro cronometro = new Cronometro();
+
+        if (opcion == 1) {
+            System.out.println("Selecciona el tiempo límite por pregunta:");
+            System.out.println("1. 15 segundos");
+            System.out.println("2. 30 segundos");
+            System.out.println("3. 60 segundos");
+            System.out.println("4. Custom Time");
+            int tiempo = scanner.nextInt();
+            int segundos = switch (tiempo) {
+                case 1 -> 15;
+                case 2 -> 30;
+                case 3 -> 60;
+                case 4 -> {
+                    System.out.print("Ingresa el tiempo personalizado en segundos: ");
+                    yield scanner.nextInt();
+                }
+                default -> 30;
+            };
+            cronometro.iniciar(segundos);
+        }
+
+        return cronometro;
     }
 }
