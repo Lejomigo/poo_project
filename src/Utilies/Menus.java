@@ -4,7 +4,6 @@ import Configuration.Questions.QuestionsHandler;
 import Configuration.Register;
 import Configuration.User;
 import static Configuration.Questions.QuestionsHandler.menuQuestion;
-import static Game.Stopwatch.configureStopwatch;
 
 public class Menus {
 
@@ -44,7 +43,6 @@ public class Menus {
                         menuQuestion(userIn);
                         break;
                     case 2:
-                        configureStopwatch();
                         break;
                     case 3:
                         break;
