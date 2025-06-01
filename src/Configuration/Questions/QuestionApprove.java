@@ -12,7 +12,9 @@ public class QuestionApprove extends Question{
     public void setUserAsk(String userAsk) {
         this.userAsk = userAsk;
     }
-
+    public String getUserAsk() {
+        return userAsk;
+    }
     @Override
 
     public String toString() {
