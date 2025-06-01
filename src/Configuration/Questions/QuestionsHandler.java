@@ -195,11 +195,4 @@ public class QuestionsHandler {
         } while (menuOption != 5);
     }
 
-    public static void main(String[] args) throws Exception {
-        User user= new User("g","l");
-
-
-
-        QuestionsHandler.menuQuestion(user);
-    }
 }

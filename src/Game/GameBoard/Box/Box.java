@@ -1,7 +1,7 @@
-package Game.GameBoard;
+package Game.GameBoard.Box;
 
 import Configuration.Questions.CategoryColors;
-import Game.Piece;
+import Game.Pieces.Piece;
 
 import java.util.List;
 
