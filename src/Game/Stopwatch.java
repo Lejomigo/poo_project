@@ -1,10 +1,13 @@
 package Game;
 
+import Utilies.Easymeth;
+
 public class Stopwatch {
 
     private long startTime;   // Timestamp when it starts
     private long timeLimit;   // Time limit in milliseconds
     private boolean running;  // Indicates if the stopwatch is currently active
+    private int timer;        // Variable used to change the time limit
 
     public Stopwatch() {
         this.running = false;
@@ -19,6 +22,7 @@ public class Stopwatch {
         this.startTime = System.currentTimeMillis();
         this.timeLimit = secondsLimit * 1000L; // Convert seconds to milliseconds
         this.running = true;
+        this.timer = secondsLimit;
     }
 
     /**
@@ -61,5 +65,21 @@ public class Stopwatch {
      */
     public boolean isRunning() {
         return running;
+    }
+    /**
+     * Prompts the user to configure and optionally activate the stopwatch with a selected time limit.
+     *
+     * @return a configured and optionally started Stopwatch instance.
+     */
+    public static Stopwatch configureStopwatch() {
+        int seconds;
+        int option = Easymeth.getInt("Desea activar el cronometro? (1 o 2)"+
+                "\n1. Yes" + "\n2. No");
+        Stopwatch stopwatch = new Stopwatch();
+        if (option == 1) {
+            seconds = Easymeth.getInt("Ingresa el tiempo personalizado en segundos: ");
+            stopwatch.start(seconds);
+        }
+        return stopwatch;
     }
 }

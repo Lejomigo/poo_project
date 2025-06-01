@@ -92,7 +92,7 @@ public class QuestionsHandler {
             num = Easymeth.getInt("Introduce un índice válido.");
         }
         QuestionApprove toReject = listToApprove.get(num - 1);
-        String motivo = Easymeth.getValidInput("¿Por qué estás rechazando esta pregunta?");
+        String motivo = Easymeth.getString("¿Por qué estás rechazando esta pregunta?");
         QuestionReject rejected = new QuestionReject(
             toReject.getQuestion(),
             toReject.getAnswer(),

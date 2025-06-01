@@ -1,0 +1,26 @@
+[
+  {
+    "userAsk": "andres@gmail.com",
+    "userReject": "ejemplo1@gmail.com",
+    "motivo": "k",
+    "question": "que numero es un canibal?",
+    "answer": "siete",
+    "category": {
+      "category": "Ciencia",
+      "color": "Verde",
+      "position": 3
+    }
+  },
+  {
+    "userAsk": "ejemplo1@gmail.com",
+    "userReject": "andres@gmail.com",
+    "motivo": "porque no ha pasado un lapso de tiempo considerable para que sea de la categoria historia",
+    "question": "como se llama el diez de argentina?",
+    "answer": "messi",
+    "category": {
+      "category": "Historia",
+      "color": "Amarillo",
+      "position": 1
+    }
+  }
+]

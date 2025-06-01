@@ -4,7 +4,7 @@ import Configuration.Questions.QuestionsHandler;
 import Configuration.Register;
 import Configuration.User;
 import static Configuration.Questions.QuestionsHandler.menuQuestion;
-import static Game.Cronometro.configurarCronometro;
+import static Game.Stopwatch.configureStopwatch;
 
 public class Menus {
 
@@ -44,7 +44,7 @@ public class Menus {
                         menuQuestion(userIn);
                         break;
                     case 2:
-                        configurarCronometro();
+                        configureStopwatch();
                         break;
                     case 3:
                         break;
