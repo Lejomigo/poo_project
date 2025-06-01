@@ -1,11 +1,5 @@
 {
-  "Historia": [
-    {
-      "pregunta": "de que color es el caballo blanco de simon bolivar?",
-      "respuesta": "blanco"
-    }
-  ],
-  "Geografía": [
+  "geografía": [
     {
       "pregunta": "¿Qué idioma es el más hablado en el planeta?",
       "respuesta": "El chino mandarín."
@@ -87,7 +81,7 @@
       "respuesta": "Bolivia, Perú y Ecuador."
     }
   ],
-  "Arte y Literatura": [
+  "arte y literatura": [
     {
       "pregunta": "¿Con qué nombre firmaba Van Gogh sus obras?",
       "respuesta": "Vincent."
@@ -173,7 +167,7 @@
       "respuesta": "Diana Krall."
     }
   ],
-  "Ciencia": [
+  "ciencia": [
     {
       "pregunta": "¿Con qué nombre se conoce el miedo a las alturas?",
       "respuesta": "Acrofobia."
@@ -235,7 +229,7 @@
       "respuesta": "El carbono."
     }
   ],
-  "Entretenimiento": [
+  "entretenimiento": [
     {
       "pregunta": "¿En qué ciudad vive el mago de Oz?",
       "respuesta": "La ciudad Esmeralda."
@@ -305,7 +299,7 @@
       "respuesta": "Charles Chaplin."
     }
   ],
-  "Deportes": [
+  "deportes": [
     {
       "pregunta": "¿Quién se proclamó como campeón del mundo en 2017 en la categoría de MotoGP?",
       "respuesta": "Marc Márquez."
@@ -357,6 +351,16 @@
     {
       "pregunta": "¿Cuál es el equipo de la NBA con más títulos?",
       "respuesta": "Los Boston Celtics."
+    }
+  ],
+  "historia": [
+    {
+      "pregunta": "de que color es el caballo viejo de simon bolivar",
+      "respuesta": "blanco"
+    },
+    {
+      "pregunta": "cuando fue la gran depresion",
+      "respuesta": "mil novecientos veintinueve"
     }
   ]
 }
