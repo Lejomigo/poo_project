@@ -180,6 +180,7 @@ public class QuestionUpdates {
 
     public static List<Question> readQuestionForCategory(File file, CategoryColors targetCategory) {
         List<Question> questionList = new ArrayList<>();
+
         try {
             if (!file.exists()) {
                 System.out.println("Archivo no encontrado. Creando archivo...");
@@ -192,28 +193,22 @@ public class QuestionUpdates {
                 Type type = new TypeToken<Map<String, List<Map<String, String>>>>() {}.getType();
                 Map<String, List<Map<String, String>>> data = gson.fromJson(reader, type);
 
-                for (Map.Entry<String, List<Map<String, String>>> entry : data.entrySet()) {
-                    String category1 = entry.getKey();
-                    CategoryColors categoryColors = null;
-                    for (CategoryColors cat : colors) {
-                        if (category1.trim().equalsIgnoreCase(cat.getCategory().trim())) {
-                            categoryColors = cat;
-                            break;
-                        }
-                    }
+                List<Map<String, String>> rawQuestions = data.get(targetCategory.getCategory());
 
-                    // Agregar solo si la categoría coincide con la que se busca
-                    if (categoryColors != null && categoryColors.equals(targetCategory)) {
-                        List<Map<String, String>> rawQuestions = entry.getValue();
-                        for (Map<String, String> q : rawQuestions) {
-                            String pregunta = q.get("pregunta");
-                            String respuesta = q.get("respuesta");
-                            questionList.add(new Question(pregunta, respuesta, categoryColors));
+                if (rawQuestions != null) {
+                    for (CategoryColors cat : colors) {
+                        if (cat.getCategory().equals(targetCategory.getCategory())) {
+                            for (Map<String, String> q : rawQuestions) {
+                                String pregunta = q.get("pregunta");
+                                String respuesta = q.get("respuesta");
+                                questionList.add(new Question(pregunta, respuesta, cat));
+                            }
+                            break;
                         }
                     }
                 }
             }
-            return questionList;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
