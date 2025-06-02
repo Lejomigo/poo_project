@@ -12,7 +12,6 @@ import java.util.List;
 public class MatrixBoard extends Matrix {
 
 
-
     public MatrixBoard() {
         super(generateMatrix()); // esto llama al constructor de Matrix y pasa la matriz
     }
@@ -41,5 +40,6 @@ public class MatrixBoard extends Matrix {
         return matrix;
     }
 
-
 }
+
+

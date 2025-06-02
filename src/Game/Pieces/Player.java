@@ -1,8 +1,8 @@
 package Game.Pieces;
 
 public class Player {
-    String user;
-    Piece piece;
+    public String user;
+    public Piece piece;
 
     public Player(String user, Piece piece) {
         this.user = user;

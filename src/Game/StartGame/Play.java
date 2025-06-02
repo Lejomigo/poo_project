@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 import static Game.StartGame.Turn.turn;
 
 public class Play {
+
     public static void playGame(User userIn, int time) throws Exception {
         List<Player> players =new ArrayList<>();
         Matrix matrixCenter = new MatrixCenter();
@@ -40,6 +41,7 @@ public class Play {
                 size=0;
             }
             turn(players.get(size),dice,fileQuestion,time);
+            size++;
         }
 
 

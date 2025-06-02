@@ -6,6 +6,9 @@ import Game.GameBoard.Matrix.MatrixCenter;
 import Game.Pieces.Piece;
 import Utilies.Easymeth;
 
+import static Game.GameBoard.Board.printBoard;
+import static Utilies.ClearTerminal.clearScreen;
+
 public class BoardMovements {
 
     public static void backMovBoard(Piece piece, int moves) {
@@ -15,10 +18,9 @@ public class BoardMovements {
 
         while (moves != 0) {
 
-            piece.getMatrix().printBoard();
-            Box matrixPosition = piece.getMatrix().getBoard()[positionY][positionX];
-            System.out.println(piece.getMatrix().getBoard().length);
-            System.out.println(piece.getMatrix().getBoard()[0].length);
+            printBoard();
+
+            Box matrixPosition = piece.getMatrix().getBoard()[positionY][positionX];;
             System.out.println("movimientos rest: " + moves);
             System.out.println("pieza en la que va " + matrixPosition.getNumber());
 
@@ -102,7 +104,8 @@ public class BoardMovements {
         int direction = 1;
 
         while (moves > 0) {
-            piece.getMatrix().printBoard();
+
+            printBoard();
             Box matrixPosition = piece.getMatrix().getBoard()[positionY][positionX];
             System.out.println("Movimientos restantes: " + moves);
             System.out.println("Pieza en la que va: " + matrixPosition.getNumber());
@@ -190,14 +193,5 @@ public class BoardMovements {
         Box newBox = piece.getMatrix().getBoard()[posY][posX];
         System.out.println("Ahora estás en la casilla: " + newBox.getNumber());
     }
-    public static void main(String[] args) {
-        Piece piece= new Piece(new MatrixBoard(),4,0);
-        Box x = piece.getMatrix().getBoard()[piece.getPositionY()][piece.getPositionX()];
-        selectMovement(piece, 40);
-        piece.getMatrix().printBoard();
-        System.out.println(piece.getPositionX());
-        System.out.println(piece.getPositionY());
-        Box y = piece.getMatrix().getBoard()[piece.getPositionY()][piece.getPositionX()];
-        System.out.println(y.getNumber());
-    }
+
 }

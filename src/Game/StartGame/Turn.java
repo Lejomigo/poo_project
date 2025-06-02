@@ -20,15 +20,24 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static Configuration.Questions.QuestionUpdates.*;
+import static Game.GameBoard.Board.printBoard;
+import static Utilies.ClearTerminal.clearScreen;
 
 public class Turn {
 
     public static void turn(Player player, Dice dice, File fileQuestions, int time){
+        clearScreen();
         Scanner sc = new Scanner(System.in);
+        printBoard();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
         System.out.println("Turno de " + player.getUser() + " presione enter para lanzar dado:");
         sc.nextLine();
         int movs =dice.lanzar();
-        System.out.println("Tienes: "+ movs + " movimientos.");
         BoardMovements.selectMovement(player.getPiece(),movs);
         Box boxToAnsw = player.getPiece().getMatrix().getBoard()[player.getPiece().getPositionY()][player.getPiece().getPositionX()];
         if (player.getPiece().getPositionY() == 5 && player.getPiece().getMatrix().getBoard().length ==6 ){

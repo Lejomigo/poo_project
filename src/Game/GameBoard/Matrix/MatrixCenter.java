@@ -39,13 +39,6 @@ public class MatrixCenter extends Matrix {
         return center;
     }
 
-    public static void main(String[] args) {
-        Matrix m = new MatrixCenter();
-        System.out.println("MatrizCentro");
-        m.printBoard();
-        Matrix m1 = new MatrixBoard();
-        System.out.println("matriz borde");
-        m1.printBoard();
-    }
+
 
 }

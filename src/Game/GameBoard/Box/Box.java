@@ -32,6 +32,10 @@ public class Box {
         return color;
     }
 
+    public CategoryColors getColorSafe() {
+        return color != null ? color : new CategoryColors("Especial", "Blanco", -1);
+    }
+
     public int getNumber() {
         return number;
     }
