@@ -52,7 +52,8 @@ public class Turn {
                 return;
             }
         }
-        sc.close();
+
+
 
 
     }
@@ -87,10 +88,10 @@ public class Turn {
             String answer = Easymeth.getString("Respuesta: " );
             if (CompareAnswers.compareAnswers(questToAnsw.getAnswer(),answer)){
                 System.out.println("Haz respondido Correctamente. ");
-                return true;
+                return answered = true;
             }else{
                 System.out.println("❌ Incorrecto. La respuesta correcta era: " + questToAnsw.getAnswer());
-                return false;
+                return answered;
             }
         }else {
             timer.start(time);
@@ -113,7 +114,7 @@ public class Turn {
                     return true;
                 }else{
                     System.out.println("❌ Incorrecto. La respuesta correcta era: " + questToAnsw.getAnswer());
-                    return false;
+                    return answered;
                 }
             }
 

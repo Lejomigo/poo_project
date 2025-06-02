@@ -3,7 +3,7 @@ package Game.GameBoard.Matrix;
 import Configuration.Questions.CategoryColors;
 import Configuration.Questions.QuestionUpdates;
 import Game.GameBoard.Box.Box;
-import Game.GameBoard.Box.CenterBox;
+import Game.GameBoard.Box.SpecialBox;
 import Game.Pieces.Piece;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class MatrixBoard extends Matrix {
                 if (contColor > 5) contColor = 0;
 
                 if (j == 2 || j == 5) {
-                    matrix[j][i] = new CenterBox(null, cont, pieces);
+                    matrix[j][i] = new SpecialBox(null, cont, pieces);
                 } else {
                     CategoryColors color = colors.get(contColor);
                     matrix[j][i] = new Box(color, cont, pieces);

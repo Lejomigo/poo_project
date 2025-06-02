@@ -36,6 +36,14 @@ public class Box {
         return number;
     }
 
+    public String getFormattedBox() {
+        // Si la caja es especial, el número se imprimirá en blanco
+        if (this instanceof SpecialBox) {
+            return String.format("\033[0;37m%d\033[0m", number);  // ANSI escape code para blanco
+        }
+        return String.format("%d", number);
+    }
+
     public List<Piece> getPieces() {
         return pieces;
     }
