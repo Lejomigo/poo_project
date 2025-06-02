@@ -43,8 +43,15 @@ public class Question {
         return category;
     }
 
+    /**
+     * Returns a string representation of the question, including the question text,
+     * its answer, and the associated category.
+     *
+     * @return A formatted string displaying the question, answer, and category.
+     */
+    @Override
     public String toString() {
-        return "Pregunta: " + question + " Respuesta: " + answer + " Categoria: "+ category;
+        return "Pregunta: " + question + " Respuesta: " + answer + " Categoria: " + category;
     }
 
 }
