@@ -21,28 +21,32 @@ import static Game.StartGame.Turn.turn;
 public class Play {
 
     public static void playGame(User userIn, int time) throws Exception {
-        List<Player> players =new ArrayList<>();
-        Matrix matrixCenter = new MatrixCenter();
-        Dice dice = new Dice();
-        File fileQuestion = new File("preguntasJuegoTrivia.json");
-        players.add(new Player(userIn.getMail(),new Piece(matrixCenter, 0,5)));
-        System.out.println("Que empiece el juego! " + userIn.getMail());
-        int option = Easymeth.getInt("Desea agregar otro jugador? (1) si (2)no:");
-        while (option == 1){
-            User addPlayer = Register.login();
-            players.add(new Player(addPlayer.getMail(),new Piece(matrixCenter, 0,5)));
-            option = Easymeth.getInt("Desea agregar otro jugador? (1) si (2)no:");
-        }
 
-        players = lanzarYOrdenarJugadores(players);
-        int size = 0;
-        while(true){
-            if (size==players.size()){
-                size=0;
+
+            List<Player>players = new ArrayList<>();
+            Matrix matrixCenter = new MatrixCenter();
+            Dice dice = new Dice();
+            File fileQuestion = new File("preguntasJuegoTrivia.json");
+            players.add(new Player(userIn.getMail(), new Piece(matrixCenter, 0, 5)));
+            System.out.println("Que empiece el juego! " + userIn.getMail());
+            int option = Easymeth.getInt("Desea agregar otro jugador? (1) si (2)no:");
+            while (option == 1) {
+                User addPlayer = Register.login();
+                players.add(new Player(addPlayer.getMail(), new Piece(matrixCenter, 0, 5)));
+                option = Easymeth.getInt("Desea agregar otro jugador? (1) si (2)no:");
+                players = lanzarYOrdenarJugadores(players);
+                int size = 0;
+                while (true) {
+                    if (size == players.size()) {
+                        size = 0;
+                    }
+                    turn(players.get(size), dice, fileQuestion, time);
+                    size++;
+                }
             }
-            turn(players.get(size),dice,fileQuestion,time);
-            size++;
-        }
+
+
+
 
 
 
@@ -66,8 +70,4 @@ public class Play {
                 .collect(Collectors.toList());
     }
 
-    public static void main(String[] args) throws Exception {
-        User userIn = new User("leo","lll");
-        playGame(userIn,0);
-    }
 }

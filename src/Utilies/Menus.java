@@ -40,13 +40,24 @@ public class Menus {
                 switch (menuOption2) {
                     case 1 -> menuQuestion(userIn);
                     case 2 -> {
-                        do {
-                            time = Easymeth.getInt("Ingrese el tiempo en segundos (mínimo 5s): ");
-                            if (time < 5) {
-                                System.out.println("El tiempo debe ser al menos 5 segundos.");
+                        System.out.println("1. Jugar.");
+                        System.out.println("2. Jugar con tiempo.");
+                        int menuOption3 = Easymeth.getInt("Ingrese opción: ");
+                        switch (menuOption3) {
+                            case 1 -> {
+                                time = 0;
+                                playGame(userIn, time);
                             }
-                        } while (time < 5);
-                        playGame(userIn, time);
+                            case 2 -> {
+                                do {
+                                    time = Easymeth.getInt("Ingrese el tiempo en segundos (mínimo 5s): ");
+                                    if (time < 5) {
+                                        System.out.println("El tiempo debe ser al menos 5 segundos.");
+                                    }
+                                    } while (time < 5);
+                                playGame(userIn, time);
+                            }
+                        }
                     }
                     case 3 -> userIn = null;
                     case 4 -> {
@@ -59,7 +70,4 @@ public class Menus {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        menu();
-    }
 }

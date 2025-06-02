@@ -26,7 +26,6 @@ import static Utilies.ClearTerminal.clearScreen;
 public class Turn {
 
     public static void turn(Player player, Dice dice, File fileQuestions, int time){
-        clearScreen();
         Scanner sc = new Scanner(System.in);
         printBoard();
         System.out.println();
@@ -133,14 +132,4 @@ public class Turn {
         return answered;
     }
 
-    public static void main(String[] args) {
-
-        int time = 5;
-        File file = new File("preguntasJuegoTrivia.json");
-        Piece piece = new Piece( new MatrixCenter(), 0,5);
-        Player p= new Player("leo@gmail.com",piece );
-        Dice dado = new Dice(6);
-        turn(p,dado,file,time);
-        System.out.println();
-    }
 }

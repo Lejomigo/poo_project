@@ -30,7 +30,6 @@ public class Board {
     };
 
     public static void printBoard() {
-        clearScreen();
         counter = 0;
         boardMatrix = new String[SIZE_Y][SIZE_X];
         initializeMatrix();
