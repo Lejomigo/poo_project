@@ -35,16 +35,16 @@ public class Play {
                 players.add(new Player(addPlayer.getMail(), new Piece(matrixCenter, 0, 5)));
                 option = Easymeth.getInt("Desea agregar otro jugador? (1) si (2)no:");
                 players = lanzarYOrdenarJugadores(players);
-                int size = 0;
-                while (true) {
-                    if (size == players.size()) {
-                        size = 0;
-                    }
-                    turn(players.get(size), dice, fileQuestion, time);
-                    size++;
-                }
-            }
 
+            }
+            int size = 0;
+            while (true) {
+                if (size == players.size()) {
+                    size = 0;
+                }
+                turn(players.get(size), dice, fileQuestion, time);
+                size++;
+            }
 
 
 
