@@ -65,14 +65,5 @@ public class Stopwatch {
         return running;
     }
 
-    /**
-     * Prompts the user to input a custom time limit for each question.
-     *
-     * @param secondsLimit a default or previously set time limit (currently unused in this method).
-     * @return the user-defined time limit in seconds.
-     */
-    public int chooseTimeLimit(int secondsLimit) {
-        secondsLimit = Easymeth.getInt("Ingrese el tiempo (segundos) para cada pregunta (minimo 5s): ");
-        return secondsLimit;
-    }
+
 }
