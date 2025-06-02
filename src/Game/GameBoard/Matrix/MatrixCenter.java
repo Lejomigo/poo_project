@@ -25,7 +25,7 @@ public class MatrixCenter extends Matrix {
             for (int j = 0; j < 6 ; j++) {
                 if (j == 5){
 
-                    center[j][i]= new SpecialBox(null,cont,pieces);
+                    center[j][i]= new SpecialBox(null,0,pieces);
 
                 }else {
 
@@ -41,7 +41,11 @@ public class MatrixCenter extends Matrix {
 
     public static void main(String[] args) {
         Matrix m = new MatrixCenter();
+        System.out.println("MatrizCentro");
         m.printBoard();
+        Matrix m1 = new MatrixBoard();
+        System.out.println("matriz borde");
+        m1.printBoard();
     }
 
 }

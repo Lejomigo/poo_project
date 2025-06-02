@@ -8,7 +8,7 @@ public class CompareAnswers {
     public static String normalize(String text) {
         text = text.toLowerCase();
         text = text.replaceAll("[^a-z0-9 ]", "");
-        text = text.replaceAll("\\b(el|la|los|las|un|una|unos|unas|de|del|es)\\b", "");
+        text = text.replaceAll("\\b(el|la|los|las|un|una|unos|unas|de|del|es|en)\\b", "");
         text = text.trim().replaceAll(" +", " ");
         return text;
     }
@@ -25,7 +25,7 @@ public class CompareAnswers {
 
         double similarity = 1.0 - ((double) distance / maxLen);
 
-        return similarity >= 0.75;
+        return similarity >= 0.65;
     }
 
 }

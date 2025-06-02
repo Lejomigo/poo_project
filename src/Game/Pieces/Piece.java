@@ -57,4 +57,14 @@ public class Piece {
     public int getPositionY() {
         return getPositionY;
     }
+
+    public  boolean checkWin(){
+        boolean value = true;
+        for (PieceColor color : listAnswer){
+            if (color.answered == false){
+                value = false;
+            }
+        }
+        return value;
+    }
 }

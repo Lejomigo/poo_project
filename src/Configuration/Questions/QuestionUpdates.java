@@ -339,8 +339,10 @@ public class QuestionUpdates {
     }
 
     public static void printColors(){
+        int i=1;
         for (CategoryColors c: colors){
-            System.out.println(c);
+            System.out.println(i +") " +c);
+            i++;
         }
 
     }

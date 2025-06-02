@@ -169,18 +169,21 @@ public class BoardMovements {
         Box currentBox = piece.getMatrix().getBoard()[posY][posX];
 
         System.out.println("Estás en la casilla: " + currentBox.getNumber());
+        if (currentBox.getNumber() == 0){
+            frontMovBoard(piece,moves);
+        }else {
 
-        String option = Easymeth.getString("¿Deseas avanzar (1) o retroceder (2)?: ");
-        while (!option.equals("1") && !option.equals("2")) {
-            option = Easymeth.getString("Entrada inválida. Elige 1 para avanzar o 2 para retroceder: ");
+            String option = Easymeth.getString("¿Deseas avanzar (1) o retroceder (2)?: ");
+            while (!option.equals("1") && !option.equals("2")) {
+                option = Easymeth.getString("Entrada inválida. Elige 1 para avanzar o 2 para retroceder: ");
+            }
+
+            if (option.equals("1")) {
+                frontMovBoard(piece, moves);
+            } else {
+                backMovBoard(piece, moves);
+            }
         }
-
-        if (option.equals("1")) {
-            frontMovBoard(piece, moves);
-        } else {
-            backMovBoard(piece, moves);
-        }
-
         // Mostrar nueva posición
         posX = piece.getPositionX();
         posY = piece.getPositionY();
