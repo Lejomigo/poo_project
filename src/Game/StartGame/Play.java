@@ -1,5 +1,9 @@
 package Game.StartGame;
 
+import Persistence.FileManager;
+import Persistence.JsonFileManager;
+import Persistence.ProgressManager;
+
 import Configuration.Register;
 import Configuration.User;
 import Game.Dice;
@@ -38,11 +42,15 @@ public class Play {
 
             }
             int size = 0;
+            FileManager fileManager = new JsonFileManager();
+            String filePath = "data/progress.json";
+            ProgressManager progressManager = new ProgressManager(fileManager,filePath);
             while (true) {
                 if (size == players.size()) {
                     size = 0;
                 }
-                turn(players.get(size), dice, fileQuestion, time);
+
+                turn(players.get(size), dice, fileQuestion, time, progressManager);
                 size++;
             }
 

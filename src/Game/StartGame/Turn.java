@@ -12,8 +12,11 @@ import Game.GameBoard.Matrix.MatrixCenter;
 import Game.Pieces.Piece;
 import Game.Pieces.Player;
 import Game.Stopwatch;
+import Persistence.FileManager;
+import Persistence.JsonFileManager;
 import Utilies.Easymeth;
-
+import Persistence.ProgressManager;
+import Game.Stats.PlayerStatsViewer;
 import java.io.File;
 import java.util.List;
 import java.util.Random;
@@ -25,7 +28,7 @@ import static Utilies.ClearTerminal.clearScreen;
 
 public class Turn {
 
-    public static void turn(Player player, Dice dice, File fileQuestions, int time){
+    public static void turn(Player player, Dice dice, File fileQuestions, int time, ProgressManager progressManager){
         Scanner sc = new Scanner(System.in);
         printBoard();
         System.out.println();
@@ -34,6 +37,7 @@ public class Turn {
         System.out.println();
         System.out.println();
         System.out.println();
+        PlayerStatsViewer.printPlayerStats(player);
         System.out.println("Turno de " + player.getUser() + " presione enter para lanzar dado:");
         sc.nextLine();
         int movs =dice.lanzar();
@@ -51,12 +55,13 @@ public class Turn {
         }
         if (boxToAnsw.getColor() == null){
             System.out.println("Caiste en casilla especial. ");
-            turn(player,dice,fileQuestions,time);
+            turn(player,dice,fileQuestions,time,progressManager);
             return;
         }else {
             if (answerQuestion(player,fileQuestions,boxToAnsw.getColor(),time)){
                 player.getPiece().getListAnswer().get(boxToAnsw.getColor().getPosition()).setAnswered(true);
-                turn(player,dice,fileQuestions,time);
+                progressManager.saveProgress(player);
+                turn(player,dice,fileQuestions,time,progressManager);
                 return;
             }
         }
@@ -69,7 +74,7 @@ public class Turn {
     public static void winCondition(Player player,File fileQuestions, int time){
             printColors();
             int option = Easymeth.getInt("Selecciona el tipo de pregunta que quieres (si respondes ganas): ");
-            while (option<1 && option >6){
+            while (option<1 || option >6){
                 option = Easymeth.getInt("Selecciona el tipo de pregunta que quieres (si respondes ganas): ");
             }
             CategoryColors colorToWin = colors.get(option-1);

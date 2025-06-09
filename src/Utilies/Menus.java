@@ -32,6 +32,19 @@ public class Menus {
                 }
             } else {
                 System.out.println("Bienvenido, estás usando: " + userIn.getMail() + ".");
+                int configuredTime = 0;
+                System.out.println("¿Desea jugar con tiempo?");
+                System.out.println("1. Sí");
+                System.out.println("2. No");
+                int timeChoice = Easymeth.getInt("Ingrese opción: ");
+                if (timeChoice == 1) {
+                    do {
+                        configuredTime = Easymeth.getInt("Ingrese el tiempo en segundos (mínimo 5s): ");
+                        if (configuredTime < 5) {
+                            System.out.println("El tiempo debe ser al menos 5 segundos.");
+                        }
+                    } while (configuredTime < 5);
+                }
                 System.out.println("1. Preguntas del juego.");
                 System.out.println("2. Jugar.");
                 System.out.println("3. Cerrar sesión.");
@@ -40,24 +53,7 @@ public class Menus {
                 switch (menuOption2) {
                     case 1 -> menuQuestion(userIn);
                     case 2 -> {
-                        System.out.println("1. Jugar.");
-                        System.out.println("2. Jugar con tiempo.");
-                        int menuOption3 = Easymeth.getInt("Ingrese opción: ");
-                        switch (menuOption3) {
-                            case 1 -> {
-                                time = 0;
-                                playGame(userIn, time);
-                            }
-                            case 2 -> {
-                                do {
-                                    time = Easymeth.getInt("Ingrese el tiempo en segundos (mínimo 5s): ");
-                                    if (time < 5) {
-                                        System.out.println("El tiempo debe ser al menos 5 segundos.");
-                                    }
-                                    } while (time < 5);
-                                playGame(userIn, time);
-                            }
-                        }
+                        playGame(userIn, configuredTime);
                     }
                     case 3 -> userIn = null;
                     case 4 -> {

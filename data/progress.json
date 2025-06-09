@@ -1,0 +1,317 @@
+{
+  "user": "ejemplo1@gmail.com",
+  "piece": {
+    "matrix": {
+      "board": [
+        [
+          {
+            "color": {
+              "category": "Geografía",
+              "color": "Azul",
+              "position": 0
+            },
+            "number": 43,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Geografía",
+              "color": "Azul",
+              "position": 0
+            },
+            "number": 49,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Geografía",
+              "color": "Azul",
+              "position": 0
+            },
+            "number": 55,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Geografía",
+              "color": "Azul",
+              "position": 0
+            },
+            "number": 61,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Geografía",
+              "color": "Azul",
+              "position": 0
+            },
+            "number": 67,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Geografía",
+              "color": "Azul",
+              "position": 0
+            },
+            "number": 73,
+            "pieces": []
+          }
+        ],
+        [
+          {
+            "color": {
+              "category": "Historia",
+              "color": "Amarillo",
+              "position": 1
+            },
+            "number": 44,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Historia",
+              "color": "Amarillo",
+              "position": 1
+            },
+            "number": 50,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Historia",
+              "color": "Amarillo",
+              "position": 1
+            },
+            "number": 56,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Historia",
+              "color": "Amarillo",
+              "position": 1
+            },
+            "number": 62,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Historia",
+              "color": "Amarillo",
+              "position": 1
+            },
+            "number": 68,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Historia",
+              "color": "Amarillo",
+              "position": 1
+            },
+            "number": 74,
+            "pieces": []
+          }
+        ],
+        [
+          {
+            "color": {
+              "category": "Deportes",
+              "color": "Naranja",
+              "position": 2
+            },
+            "number": 45,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Deportes",
+              "color": "Naranja",
+              "position": 2
+            },
+            "number": 51,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Deportes",
+              "color": "Naranja",
+              "position": 2
+            },
+            "number": 57,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Deportes",
+              "color": "Naranja",
+              "position": 2
+            },
+            "number": 63,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Deportes",
+              "color": "Naranja",
+              "position": 2
+            },
+            "number": 69,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Deportes",
+              "color": "Naranja",
+              "position": 2
+            },
+            "number": 75,
+            "pieces": []
+          }
+        ],
+        [
+          {
+            "color": {
+              "category": "Ciencia",
+              "color": "Verde",
+              "position": 3
+            },
+            "number": 46,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Ciencia",
+              "color": "Verde",
+              "position": 3
+            },
+            "number": 52,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Ciencia",
+              "color": "Verde",
+              "position": 3
+            },
+            "number": 58,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Ciencia",
+              "color": "Verde",
+              "position": 3
+            },
+            "number": 64,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Ciencia",
+              "color": "Verde",
+              "position": 3
+            },
+            "number": 70,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Ciencia",
+              "color": "Verde",
+              "position": 3
+            },
+            "number": 76,
+            "pieces": []
+          }
+        ],
+        [
+          {
+            "color": {
+              "category": "Arte y Literatura",
+              "color": "Morado",
+              "position": 4
+            },
+            "number": 47,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Arte y Literatura",
+              "color": "Morado",
+              "position": 4
+            },
+            "number": 53,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Arte y Literatura",
+              "color": "Morado",
+              "position": 4
+            },
+            "number": 59,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Arte y Literatura",
+              "color": "Morado",
+              "position": 4
+            },
+            "number": 65,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Arte y Literatura",
+              "color": "Morado",
+              "position": 4
+            },
+            "number": 71,
+            "pieces": []
+          },
+          {
+            "color": {
+              "category": "Arte y Literatura",
+              "color": "Morado",
+              "position": 4
+            },
+            "number": 77,
+            "pieces": []
+          }
+        ],
+        [
+          {
+            "number": 0,
+            "pieces": []
+          },
+          {
+            "number": 0,
+            "pieces": []
+          },
+          {
+            "number": 0,
+            "pieces": []
+          },
+          {
+            "number": 0,
+            "pieces": []
+          },
+          {
+            "number": 0,
+            "pieces": []
+          },
+          {
+            "number": 0,
+            "pieces": []
+          }
+        ]
+      ]
+    },
+    "positionX": 4,
+    "getPositionY": 3
+  }
+}
